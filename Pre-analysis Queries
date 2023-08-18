@@ -1,0 +1,3 @@
+The following contains SQL Queries used to check for dirty data, duplicated records, non-uniform data, missing data, and consistency in the film and customer table.
+
+-- 
