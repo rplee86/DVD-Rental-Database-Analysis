@@ -1,0 +1,14 @@
+The following contains queries where aggregate functions were used.
+
+-- For G and PG movies in the film table, query the count of these movies, their average rental rate, and their minimum and maximum rental durations.
+SELECT
+        COUNT(film_id) AS count_of_movies,
+        AVG(rental_rate) AS average_movie_rental_rate,
+        MIN(rental_duration) AS minimum_rental_duration,
+        MAX(rental_duration) AS maximum_rental_duration
+FROM
+        film
+WHERE
+        rating IN ('G', 'PG')
+GROUP BY
+        rating;
