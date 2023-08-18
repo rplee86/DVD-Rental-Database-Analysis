@@ -26,56 +26,56 @@ FROM
 
 -- Check for duplicate data
 SELECT
-        title,
-        description,
-        release_year,
-        language_id,
-        rental_duration,
-        rental_rate,
-        length,
-        replacement_cost,
-        rating,
-        special_features,
-        fulltext,
-        COUNT(*)
+			title,
+      description,
+      release_year,
+      language_id,
+      rental_duration,
+      rental_rate,
+      length,
+      replacement_cost,
+      rating,
+      special_features,
+      fulltext,
+      COUNT(*)
 FROM 
-        film
+      film
 GROUP BY
-        title,
-        description,
-        release_year,
-        language_id,
-        rental_duration,
-        rental_rate,
-        length,
-        replacement_cost,
-        rating,
-        special_features,
-        fulltext
+      title,
+      description,
+      release_year,
+      language_id,
+      rental_duration,
+      rental_rate,
+      length,
+      replacement_cost,
+      rating,
+      special_features,
+      fulltext
 HAVING
-        COUNT(*) > 1; -- no result indicates no duplicates
+      COUNT(*) > 1; -- no result indicates no duplicates
 
 SELECT
-        store_id,
-        first_name,
-        last_name,
-        email,
-        address_id,
-        activebool,
-        active,
-        COUNT(*)
+      store_id,
+      first_name,
+      last_name,
+      email,
+      address_id,
+      activebool,
+      active,
+      COUNT(*)
 FROM
-        customer
+      customer
 GROUP BY
-        store_id,
-        first_name,
-        last_name,
-        email,
-        address_id,
-        activebool,
-        active
+      store_id,
+      first_name,
+      last_name,
+      email,
+      address_id,
+      activebool,
+      active
 HAVING
-        COUNT(*) > 1; -- no result indciates no duplicates
+      COUNT(*) > 1; -- no result indciates no duplicates
 
 
 -- Check for missing data
