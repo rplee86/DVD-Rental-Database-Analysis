@@ -6,7 +6,7 @@ SELECT
       title,
       description
 FROM
-      film
+      fil
 WHERE
       title LIKE `%Uptown%';
 
