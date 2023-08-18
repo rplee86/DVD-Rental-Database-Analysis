@@ -1,5 +1,5 @@
  ## SQL Data Analysis Project
-In this data analysis project by CareerFoundry, I use PostgreSQL in conjunction with Tableau to answer business questions for a fictitious DVD rental company, Rockbuster Stealth. This repository contains the following:
+In this data analysis project by [CareerFoundry](https://careerfoundry.com/), I use PostgreSQL in conjunction with Tableau to answer business questions for a fictitious DVD rental company, Rockbuster Stealth. This repository contains the following:
 - Moderately complex SQL queries to answer business questions.
 - SQL results presented to stakeholders by creating visualizations and telling a data story.
 - SQL results presented to technical colleagues using Microsoft Excel and creating a data dictionary.
