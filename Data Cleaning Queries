@@ -1,0 +1,139 @@
+The following contains SQL queries used to check for non-uniform data, duplicated data, missing data, and data consistency in the film and customer table.
+Just a sample of SQL queries are given below.
+
+
+-- Check for non-uniform data
+SELECT
+      DISTINCT release_year
+FROM
+      film;
+
+SELECT
+      DISTINCT rating
+FROM
+      film;
+
+SELECT
+      DISTINCT store_id
+FROM
+      customer;
+
+SELECT
+      DISTINCT active
+FROM
+      customer;
+
+
+-- Check for duplicate data
+SELECT
+        title,
+        description,
+        release_year,
+        language_id,
+        rental_duration,
+        rental_rate,
+        length,
+        replacement_cost,
+        rating,
+        special_features,
+        fulltext,
+        COUNT(*)
+FROM 
+        film
+GROUP BY
+        title,
+        description,
+        release_year,
+        language_id,
+        rental_duration,
+        rental_rate,
+        length,
+        replacement_cost,
+        rating,
+        special_features,
+        fulltext
+HAVING
+        COUNT(*) > 1; -- no result indicates no duplicates
+
+SELECT
+        store_id,
+        first_name,
+        last_name,
+        email,
+        address_id,
+        activebool,
+        active,
+        COUNT(*)
+FROM
+        customer
+GROUP BY
+        store_id,
+        first_name,
+        last_name,
+        email,
+        address_id,
+        activebool,
+        active
+HAVING
+        COUNT(*) > 1; -- no result indciates no duplicates
+
+
+-- Check for missing data
+SELECT
+      film_id,
+      title
+FROM
+      film
+WHERE
+      title IS NULL;
+
+SELECT
+      film_id,
+      rating
+FROM
+      film
+WHERE
+      rating IS NULL;
+
+SELECT
+      customer_id,
+      first_name
+FROM 
+      customer
+WHERE
+      first_name IS NULL;
+
+SELECT
+      customer_id,
+      email
+FROM
+      customer
+WHERE
+      email IS NULL;
+
+
+-- Check for consistency in the data values
+SELECT
+      MIN(rental_duration) AS min_rent_duration,
+      MAX(rental_duration) AS max_rent_duration,
+      AVG(rental_druation) AS avg_rent_duration,
+      MIN(rental_rate) AS min_rent_rate,
+      MAX(rental_rate) AS max_rent_rate,
+      AVG(rental_rate) AS avg_rent_rate,
+      MIN(length) AS min_length,
+      MAX(length) AS max_length,
+      AVG(length) AS avg_length,
+      MIN(replacement_cost) AS min_replace_cost,
+      MAX(replacement_cost) AS max_replace_cost,
+      AVG(replacement_cost) AS avg_replace_cost
+FROM
+      film;
+
+SELECT
+      MODE() WITHIN GROUP (ORDER BY store_id) AS modal_store_id,
+      MODE() WITHIN GROUP (ORDER BY first_name) AS modal_first_name,
+      MODE() WITHIN GROUP (ORDER BY last_name) AS modal_last_name,
+      MODE() WITHIN GROUP (ORDER BY activebool) AS modal_activebool,
+      MODE() WITHIN GROUP (ORDER BY active) AS modal_active
+FROM
+      customer;
