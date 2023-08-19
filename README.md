@@ -1,5 +1,5 @@
- ## SQL Data Analysis Project
-In this data analysis project, I use PostgreSQL in conjunction with Tableau to answer business questions for a fictitious DVD rental company, Rockbuster Stealth, in service of applying my data analytics skills learned from [CareerFoundry](https://careerfoundry.com/). This repository contains the following:
+ ## SQL Data Analytics Project
+In this data analytics project, I use PostgreSQL in conjunction with Tableau to answer business questions for a fictitious DVD rental company, Rockbuster Stealth, in service of applying my data analytics skills learned from [CareerFoundry](https://careerfoundry.com/). This repository contains the following:
 - Data dictionary
 - SQL queries to answer business questions.
 - An entity relationship diagram (ERD) made with [DbVisualizer](https://www.dbvis.com/).
