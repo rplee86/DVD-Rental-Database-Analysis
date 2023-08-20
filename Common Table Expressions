@@ -2,84 +2,84 @@ The following contains SQL queries where CTEs (common table expressions) were us
 
 -- Find the average amount paid by the top 5 customers
 WITH cte_total_amount_paid (customer_id, first_name, last_name, country, city, total_amount_paid) AS (
-			SELECT
-						payment.customer_id,
-						customer.first_name,
-						customer.last_name,
-						country.country,
-						city.city,
-						SUM(amount) AS total_amount_paid
-	 		FROM
-						country
-	 		INNER JOIN city
-						ON country.country_id = city.country_id
-	 		INNER JOIN address
-						ON city.city_id = address.city_id
-	 		INNER JOIN customer
-						ON address.address_id = customer.address_id
-	 		INNER JOIN payment
-						ON customer.customer_id = payment.customer_id
-	 		WHERE city.city
-						IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
-	 		GROUP BY
-						payment.customer_id,
-			  		customer.first_name,
-			  		customer.last_name,
-			  		country.country,
-			  		city.city
-	 		ORDER BY
-						total_amount_paid DESC
-	 		LIMIT 5
+	SELECT
+		payment.customer_id,
+		customer.first_name,
+		customer.last_name,
+		country.country,
+		city.city,
+		SUM(amount) AS total_amount_paid
+	FROM
+		country
+	INNER JOIN city
+		ON country.country_id = city.country_id
+	INNER JOIN address
+		ON city.city_id = address.city_id
+	INNER JOIN customer
+		ON address.address_id = customer.address_id
+	INNER JOIN payment
+		ON customer.customer_id = payment.customer_id
+	WHERE city.city
+		IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
+	GROUP BY
+		payment.customer_id,
+		customer.first_name,
+		customer.last_name,
+		country.country,
+		city.city
+	ORDER BY
+		total_amount_paid DESC
+	LIMIT 5
 )
 SELECT
-			ROUND(AVG(total_amount_paid), 2) AS average
+	ROUND(AVG(total_amount_paid), 2) AS average
 FROM
-			cte_total_amount_paid;
+	cte_total_amount_paid;
 
 
 -- Find out how many of the top 5 customers are based within each country
 WITH cte_top_5_customers (customer_id, first_name, last_name, country, city, total_amount_paid) AS (
-			SELECT
-						payment.customer_id,
-						customer.first_name,
-						customer.last_name,
-						country.country,
-						city.city,
-						SUM(amount) AS total_amount_paid
-	 		FROM
-						country 
-	 		INNER JOIN city
-						ON country.country_id = city.country_id
-	 		INNER JOIN address
-						ON city.city_id = address.city_id
-	 		INNER JOIN customer
-						ON address.address_id = customer.address_id
-	 		INNER JOIN payment
-						ON customer.customer_id = payment.customer_id
-	 		WHERE city.city
-						IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
-	 		GROUP BY
-						payment.customer_id,
-			  		customer.first_name,
-			  		customer.last_name,
-			  		country.country, city.city
-	 		ORDER BY
-						total_amount_paid DESC
-	 		LIMIT 5
+	SELECT
+		payment.customer_id,
+		customer.first_name,
+		customer.last_name,
+		country.country,
+		city.city,
+		SUM(amount) AS total_amount_paid
+	FROM
+		country 
+	INNER JOIN city
+		ON country.country_id = city.country_id
+	INNER JOIN address
+		ON city.city_id = address.city_id
+	INNER JOIN customer
+		ON address.address_id = customer.address_id
+	INNER JOIN payment
+		ON customer.customer_id = payment.customer_id
+	WHERE city.city
+		IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
+	GROUP BY
+		payment.customer_id,
+		customer.first_name,
+		customer.last_name,
+		country.country, city.city
+	ORDER BY
+		total_amount_paid DESC
+	LIMIT 5
 )
 SELECT
-			country.country,
-	   	COUNT(DISTINCT(customer.customer_id)) AS all_customer_count,
-	   	COUNT(DISTINCT(cte_top_5_customers)) AS top_customer_count
+	country.country,
+	COUNT(DISTINCT(customer.customer_id)) AS all_customer_count,
+	COUNT(DISTINCT(cte_top_5_customers)) AS top_customer_count
 FROM
-			country
+	country
 INNER JOIN city
-			ON country.country_id = city.country_id
+	ON country.country_id = city.country_id
 INNER JOIN address
-			ON city.city_id = address.city_id
+	ON city.city_id = address.city_id
 INNER JOIN customer
-			ON address.address_id = customer.address_id
+	ON address.address_id = customer.address_id
 LEFT JOIN cte_top_5_customers
-			ON country.country = cte_top_5_customers.country
+	ON country.country = cte_top_5_customers.country
 GROUP BY
-			country.country;
+	country.country;
