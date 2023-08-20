@@ -2,72 +2,72 @@ The following contains SQL queries where the JOIN command was used.
 
 -- Find the top 10 counties in terms of customer numbers
 SELECT
-			country.country,
-			COUNT(customer.customer_id) AS customer_count
+	country.country,
+	COUNT(customer.customer_id) AS customer_count
 FROM
-			country
+	country
 INNER JOIN city 
-			ON country.country_id = city.country_id
+	ON country.country_id = city.country_id
 INNER JOIN address
-			ON city.city_id = address.city_id
+	ON city.city_id = address.city_id
 INNER JOIN customer 
-			ON address.address_id = customer.address_id
+	ON address.address_id = customer.address_id
 GROUP BY
-			country.country
+	country.country
 ORDER BY
-			customer_count DESC
+	customer_count DESC
 LIMIT 10;
 
 
 -- Find the top 10 cities within the top 10 counties (must use previous query results to filter for top 10 counties)
 SELECT
-			country.country
-			city.city,
-			COUNT(customer.customer_id) AS customer_count
+	country.country
+	city.city,
+	COUNT(customer.customer_id) AS customer_count
 FROM
-			country
+	country
 INNER JOIN city
-			ON country.country_id = city.country_id
+	ON country.country_id = city.country_id
 INNER JOIN address
-			ON city.city_id = address.city_id
+	ON city.city_id = address.city_id
 INNER JOIN customer
-			ON address.address_id = customer.address_id
+	ON address.address_id = customer.address_id
 WHERE country.country
-			IN ('India', 'China', 'United States', 'Japan', 'Mexico', 'Brazil', 'Russian Federation', 'Philippines', 'Turkey', 'Indonesia')
+	IN ('India', 'China', 'United States', 'Japan', 'Mexico', 'Brazil', 'Russian Federation', 'Philippines', 'Turkey', 'Indonesia')
 GROUP BY
-			country.country,
-			city.city
+	country.country,
+	city.city
 ORDER BY
-			customer_count DESC
+	customer_count DESC
 LIMIT 10;
 
 
 -- Find the top 5 customers in the top 10 cities who have paid the highest total amounts (must use previous query results to filter for top 10 cities)
 SELECT
-			payment.customer_id,
-			customer.first_name,
-		  customer.last_name,
-	    country.country,
-	    city.city,
-			SUM(amount) AS total_amount_paid
+	payment.customer_id,
+	customer.first_name,
+	customer.last_name,
+	country.country,
+	city.city,
+	SUM(amount) AS total_amount_paid
 FROM
-      country
+	country
 INNER JOIN city
-			ON country.country_id = city.country_id
+	ON country.country_id = city.country_id
 INNER JOIN address
-			ON city.city_id = address.city_id
+	ON city.city_id = address.city_id
 INNER JOIN customer
-			ON address.address_id = customer.address_id
+	ON address.address_id = customer.address_id
 INNER JOIN payment
-			ON customer.customer_id = payment.customer_id
+	ON customer.customer_id = payment.customer_id
 WHERE city.city 
-			IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
+	IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
 GROUP BY
-			payment.customer_id,
-			customer.first_name,
-		  customer.last_name,
-		  country.country,
-			city.city
+	payment.customer_id,
+	customer.first_name,
+	customer.last_name,
+	country.country,
+	city.city
 ORDER BY
-      total_amount_paid DESC
+	total_amount_paid DESC
 LIMIT 5;
