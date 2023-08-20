@@ -48,7 +48,6 @@ INNER JOIN address
 INNER JOIN customer
       ON address.address_id = customer.address_id
 LEFT JOIN 
---begin subquery below
       (SELECT
             payment.customer_id,
             customer.first_name,
@@ -77,6 +76,5 @@ LEFT JOIN
       ORDER BY
             total_amount_paid DESC
 		  LIMIT 5) AS top_5_customers ON country.country = top_5_customers.country
--- end subquery
 GROUP BY
       country.country;
