@@ -1,5 +1,6 @@
 The following contains basic PostgreSQL queries that were used to query data from the DVD Rental Database.
 
+
 -- Query from the film table any film titles that contain the word Uptown. The results should include the columns film_id, title, and description.
 SELECT
 	film_id,
