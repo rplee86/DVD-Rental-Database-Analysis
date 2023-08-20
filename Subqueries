@@ -4,7 +4,6 @@ The following contains SQL queries where subqueries were used.
 SELECT 
       ROUND(AVG(total_amount_paid), 2) AS average_amount_paid
 FROM
--- begin subquery below
       (SELECT
             payment.customer_id,
 		        customer.first_name,
