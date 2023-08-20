@@ -6,9 +6,9 @@ SELECT
 			title,
 			description
 FROM
-      film
+			film
 WHERE
-      title LIKE '%Uptown%';
+			title LIKE '%Uptown%';
 
 
 -- Query from the film table films that is longer than 120 minutes in duration and has a rental rate higher than 2.99. The results should include the columns film_id, title, and description.
