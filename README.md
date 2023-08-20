@@ -4,8 +4,10 @@ In this data analytics project, I use PostgreSQL in conjunction with Tableau to 
 - Data dictionary
 - SQL queries to answer business questions
 - An entity relationship diagram (ERD) made with [DbVisualizer](https://www.dbvis.com/)
-- Presentation of results can be found here: [Tableau Storyboard Presentation](https://public.tableau.com/app/profile/ryan.lee1243/viz/CareerFoundryExercise3_10_16891997793630/RockbusterPresentation?publish=yes)
 
 ## Data
 The DVD rental database represents the business processes of a DVD rental store. Descriptions and Entity Relationship Diagram can be found in the Data Dictionary file.
 Here is the link to the [PostgreSQL DVD Rental sample database](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip).
+
+## Tableau Storyboard Presentation
+Presentation of results can be found here: [Tableau Storyboard Presentation](https://public.tableau.com/app/profile/ryan.lee1243/viz/CareerFoundryExercise3_10_16891997793630/RockbusterPresentation?publish=yes)
