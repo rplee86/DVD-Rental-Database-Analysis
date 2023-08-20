@@ -1,5 +1,6 @@
 The following contains SQL queries where CTEs (common table expressions) were used.
 
+
 -- Find the average amount paid by the top 5 customers
 WITH cte_total_amount_paid (customer_id, first_name, last_name, country, city, total_amount_paid) AS (
 	SELECT
