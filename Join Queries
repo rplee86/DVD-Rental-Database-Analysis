@@ -1,7 +1,7 @@
 The following contains SQL queries where the JOIN command was used.
 
 
--- Find the top 10 counties in terms of customer numbers
+-- Find the top 10 countries in terms of customer numbers
 SELECT
 	country.country,
 	COUNT(customer.customer_id) AS customer_count
@@ -20,7 +20,7 @@ ORDER BY
 LIMIT 10;
 
 
--- Find the top 10 cities within the top 10 counties (must use previous query results to filter for top 10 counties)
+-- Find the top 10 cities within the top 10 countries (must use previous query results to filter for top 10 counties)
 SELECT
 	country.country,
 	city.city,
