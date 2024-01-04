@@ -6,10 +6,8 @@ SELECT
 	film_id,
 	title,
 	description
-FROM
-	film
-WHERE
-	title LIKE '%Uptown%';
+FROM film
+WHERE title LIKE '%Uptown%';
 
 
 -- Query from the film table films that is longer than 120 minutes in duration and has a rental rate higher than 2.99. The results should include the columns film_id, title, and description.
@@ -17,10 +15,8 @@ SELECT
 	film_id,
 	title,
 	description
-FROM
-	film
-WHERE
-	length > 120 AND rental_rate > 2.99;
+FROM film
+WHERE length > 120 AND rental_rate > 2.99;
 
 
 -- Query from the film table all films with a rental duration between 3 and 7 days (not including 3 and 7). The results should include the columns film_id, title, and description.
@@ -28,10 +24,8 @@ SELECT
 	film_id,
 	title,
 	description
-FROM
-	film
-WHERE
-	rental_duration BETWEEN 4 AND 6;
+FROM film
+WHERE rental_duration BETWEEN 4 AND 6;
 
 
 -- Query from film table all films with a replacement cost less than 14.99. The results should include the columns film_id, title, and description.
@@ -39,10 +33,8 @@ SELECT
 	film_id,
 	title,
 	description
-FROM
-	film
-WHERE
-	replacement_cost < 14.99;
+FROM film
+WHERE replacement_cost < 14.99;
 
 
 -- Query from film table all films with a rating of G or PG. The results should include the columns film_id, title, and description.
@@ -50,10 +42,8 @@ SELECT
 	film_id,
 	title,
 	description
-FROM
-	film
-WHERE
-	rating IN ('G', 'PG');
+FROM film
+WHERE rating IN ('G', 'PG');
 
 
 -- For G and PG movies in the film table, query the count of these movies, their average rental rate, and their minimum and maximum rental durations.
@@ -63,9 +53,6 @@ SELECT
 	AVG(rental_rate) AS average_movie_rental_rate,
 	MIN(rental_duration) AS minimum_rental_duration,
 	MAX(rental_duration) AS maximum_rental_duration
-FROM
-	film
-WHERE
-	rating IN ('G', 'PG')
-GROUP BY
-	rating;
+FROM film
+WHERE rating IN ('G', 'PG')
+GROUP BY rating;
