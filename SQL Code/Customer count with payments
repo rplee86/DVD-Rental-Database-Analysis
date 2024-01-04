@@ -1,0 +1,13 @@
+-- Customer count, total payment, and average payment received in each country  
+SELECT
+	co.country,
+	COUNT(DISTINCT(cu.customer_id)) AS customer_count,
+	SUM(p.amount) AS total_payment,
+	ROUND(AVG(p.amount),2) AS average_payment
+FROM customer cu
+	JOIN address a ON cu.address_id = a.address_id
+	JOIN city c ON a.city_id = c.city_id
+	JOIN country co ON c.country_id = co.country_id
+	JOIN payment p ON cu.customer_id = p.customer_id
+GROUP BY co.country
+ORDER BY total_payment DESC;
