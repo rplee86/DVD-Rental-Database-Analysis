@@ -1,151 +1,83 @@
 The following contains SQL queries used to check for non-uniform data, duplicated data, missing data, and data consistency in the film and customer table.
 
 
--- Check for non-uniform data
-SELECT
-	DISTINCT title
-FROM
-	film
-ORDER BY
-	title;
+-- Check for non-uniform data in film tables
+SELECT DISTINCT title
+FROM film
+ORDER BY title;
 
-SELECT
-	DISTINCT description
-FROM
-	film
-ORDER BY
-	description;
+SELECT DISTINCT description
+FROM film
+ORDER BY description;
 
+SELECT DISTINCT release_year
+FROM film
+ORDER BY release_year;
 
-SELECT
-	DISTINCT release_year
-FROM
-	film
-ORDER BY
-	release_year;
+SELECT DISTINCT language_id
+FROM film
+ORDER BY language_id;
 
+SELECT DISTINCT rental_duration
+FROM film
+ORDER BY rental_duration;
 
-SELECT
-	DISTINCT language_id
-FROM
-	film
-ORDER BY
-	language_id;
+SELECT DISTINCT rental_rate
+FROM film
+ORDER BY rental_rate;
 
+SELECT DISTINCT length
+FROM film
+ORDER BY length;
 
-SELECT
-	DISTINCT rental_duration
-FROM
-	film
-ORDER BY
-	rental_duration;
+SELECT DISTINCT replacement_cost
+FROM film
+ORDER BY replacement_cost;
 
+SELECT DISTINCT rating
+FROM film
+ORDER BY rating;
 
-SELECT
-	DISTINCT rental_rate
-FROM
-	film
-ORDER BY
-	rental_rate;
+SELECT DISTINCT special_features
+FROM film
+ORDER BY special_features;
+
+SELECT fulltext
+FROM film
+ORDER BY fulltext;
 
 
-SELECT
-	DISTINCT length
-FROM
-	film
-ORDER BY
-	length;
+-- Check for non-uniform data in film tables
+SELECT DISTINCT store_id
+FROM customer
+ORDER BY store_id;
+
+SELECT DISTINCT first_name
+FROM customer
+ORDER BY first_name;
+
+SELECT DISTINCT last_name
+FROM customer
+ORDER BY last_name;
+
+SELECT DISTINCT email
+FROM customer
+ORDER BY email;
+
+SELECT DISTINCT address_id
+FROM customer
+ORDER BY address_id;
+
+SELECT DISTINCT activebool
+FROM customer
+ORDER BY activebool;
+
+SELECT DISTINCT active
+FROM customer
+ORDER BY active;
 
 
-SELECT
-	DISTINCT replacement_cost
-FROM
-	film
-ORDER BY
-	replacement_cost;
-
-
-SELECT
-	DISTINCT rating
-FROM
-	film
-ORDER BY
-	rating;
-
-
-SELECT
-	DISTINCT special_features
-FROM
-	film
-ORDER BY
-	special_features;
-
-
-SELECT
-	fulltext
-FROM
-	film
-ORDER BY
-	fulltext;
-
-
-SELECT
-	DISTINCT store_id
-FROM
-	customer
-ORDER BY
-	store_id;
-
-
-SELECT
-	DISTINCT first_name
-FROM
-	customer
-ORDER BY
-	first_name;
-
-
-SELECT
-	DISTINCT last_name
-FROM
-	customer
-ORDER BY
-	last_name;
-
-
-SELECT
-	DISTINCT email
-FROM
-	customer
-ORDER BY
-	email;
-
-
-SELECT
-	DISTINCT address_id
-FROM
-	customer
-ORDER BY
-	address_id;
-
-
-SELECT
-	DISTINCT activebool
-FROM
-	customer
-ORDER BY
-	activebool;
-
-
-SELECT
-	DISTINCT active
-FROM
-	customer
-ORDER BY
-	active;
-
-
--- Check for duplicate data
+-- Check for duplicate data in film table
 SELECT
 	title,
 	description,
@@ -159,8 +91,7 @@ SELECT
 	special_features,
 	fulltext,
 	COUNT(*)
-FROM 
-	film
+FROM  film
 GROUP BY
 	title,
 	description,
@@ -173,10 +104,10 @@ GROUP BY
 	rating,
 	special_features,
 	fulltext
-HAVING
-	COUNT(*) > 1; -- no result indicates no duplicates
+HAVING COUNT(*) > 1; -- no result indicates no duplicates
 
 
+-- Check for duplicate data in customer table
 SELECT
 	store_id,
 	first_name,
@@ -186,8 +117,7 @@ SELECT
 	activebool,
 	active,
 	COUNT(*)
-FROM
-	customer
+FROM customer
 GROUP BY
 	store_id,
 	first_name,
@@ -196,174 +126,122 @@ GROUP BY
 	address_id,
 	activebool,
 	active
-HAVING
-	COUNT(*) > 1; -- no result indciates no duplicates
+HAVING COUNT(*) > 1; -- no result indciates no duplicates
 
 
--- Check for missing data
+-- Check for missing data in film table
 SELECT
 	film_id,
 	title
-FROM
-	film
-WHERE
-	title IS NULL;
-
+FROM film
+WHERE title IS NULL;
 
 SELECT
 	film_id,
 	description
-FROM
-	film
-WHERE
-	description IS NULL;
-
+FROM film
+WHERE description IS NULL;
 
 SELECT
 	film_id,
 	release_year
-FROM
-	film
-WHERE
-	release_year IS NULL;
-
+FROM film
+WHERE release_year IS NULL;
 
 SELECT
 	film_id,
 	language_id
-FROM
-	film
-WHERE
-	language_id IS NULL;
-
+FROM film
+WHERE language_id IS NULL;
 
 SELECT
 	film_id,
 	rental_duration
-FROM
-	film
-WHERE
-	rental_duration IS NULL;
-
+FROM film
+WHERE rental_duration IS NULL;
 
 SELECT
 	film_id,
 	rental_rate
-FROM
-	film
-WHERE
-	rental_rate IS NULL;
-
+FROM film
+WHERE rental_rate IS NULL;
 
 SELECT
 	film_id,
 	length
-FROM
-	film
-WHERE
-	length IS NULL;
-
+FROM film
+WHERE length IS NULL;
 
 SELECT
 	film_id,
 	replacement_cost
-FROM
-	film
-WHERE
-	replacement_cost IS NULL;
-
+FROM film
+WHERE replacement_cost IS NULL;
 
 SELECT
 	film_id,
 	rating
-FROM
-	film
-WHERE
-	rating IS NULL;
-
+FROM film
+WHERE rating IS NULL;
 
 SELECT
 	film_id,
 	special_features
-FROM
-	film
-WHERE
-	special_features IS NULL;
-
+FROM film
+WHERE special_features IS NULL;
 
 SELECT
 	film_id,
 	fulltext
-FROM
-	film
-WHERE
-	fulltext IS NULL;
+FROM film
+WHERE fulltext IS NULL;
 
 
+-- Check for missing data in customer table
 SELECT
 	customer_id,
 	store_id
-FROM 
-	customer
-WHERE
-	store_id IS NULL;
-
+FROM customer
+WHERE store_id IS NULL;
 
 SELECT
 	customer_id,
 	first_name
-FROM 
-	customer
-WHERE
-	first_name IS NULL;
-
+FROM customer
+WHERE first_name IS NULL;
 
 SELECT
 	customer_id,
 	last_name
-FROM 
-	customer
-WHERE
-	last_name IS NULL;
-
+FROM customer
+WHERE last_name IS NULL;
 
 SELECT
 	customer_id,
 	email
-FROM
-	customer
-WHERE
-	email IS NULL;
-
+FROM customer
+WHERE email IS NULL;
 
 SELECT
 	customer_id,
 	address_id
-FROM
-	customer
-WHERE
-	address_id IS NULL;
-
+FROM customer
+WHERE address_id IS NULL;
 
 SELECT
 	customer_id,
 	activebool
-FROM
-	customer
-WHERE
-	activebool IS NULL;
-
+FROM customer
+WHERE activebool IS NULL;
 
 SELECT
 	customer_id,
 	active
-FROM
-	customer
-WHERE
-	active IS NULL;
+FROM customer
+WHERE active IS NULL;
 
 
--- Check for consistency in the data values
+-- Check for data value consistency in the film table
 SELECT
 	MIN(rental_duration) AS min_rent_duration,
 	MAX(rental_duration) AS max_rent_duration,
@@ -377,15 +255,14 @@ SELECT
 	MIN(replacement_cost) AS min_replace_cost,
 	MAX(replacement_cost) AS max_replace_cost,
 	AVG(replacement_cost) AS avg_replace_cost
-FROM
-	film;
+FROM film;
 
 
+-- Check for data value consistency in the customer table
 SELECT
 	MODE() WITHIN GROUP (ORDER BY store_id) AS modal_store_id,
 	MODE() WITHIN GROUP (ORDER BY first_name) AS modal_first_name,
 	MODE() WITHIN GROUP (ORDER BY last_name) AS modal_last_name,
 	MODE() WITHIN GROUP (ORDER BY activebool) AS modal_activebool,
 	MODE() WITHIN GROUP (ORDER BY active) AS modal_active
-FROM
-	customer;
+FROM customer;
