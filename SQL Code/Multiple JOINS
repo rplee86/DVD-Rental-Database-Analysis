@@ -1,0 +1,26 @@
+-- Obtain the number of times a genre with a particular rating was rented and the total revenue it brought in each country
+SELECT
+	co.country,
+	cat.name AS genre,
+	f.rating,
+	COUNT(r.rental_id) AS times_rented,
+	SUM(p.amount) AS total_revenue
+FROM customer cu
+	JOIN address a ON cu.address_id = a.address_id
+	JOIN city c ON a.city_id = c.city_id
+	JOIN country co ON c.country_id = co.country_id
+	JOIN payment p ON cu.customer_id = p.customer_id
+	JOIN rental r ON p.rental_id = r.rental_id
+	JOIN inventory i ON r.inventory_id = i.inventory_id
+	JOIN film f ON i.film_id = f.film_id
+	JOIN film_category fc ON f.film_id = fc.film_id
+	JOIN category cat ON fc.category_id = cat.category_id
+GROUP BY
+	co.country,
+	cat.name,
+	f.rating
+ORDER BY
+	co.country,
+	genre,
+	f.rating,
+	total_revenue;
