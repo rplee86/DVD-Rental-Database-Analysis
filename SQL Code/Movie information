@@ -1,0 +1,27 @@
+-- List of all movies, including title, length, rental duration, genre, rental rate, rating, number of copies, and total revenue
+SELECT
+	DISTINCT f.film_id,
+	f.title,
+	f.length,
+	f.rental_duration,
+	f.rental_rate,
+	f.rating,
+	cat.name AS genre,
+	COUNT(DISTINCT i.inventory_id) AS copies,
+	COUNT(r.rental_id) AS times_rented,
+	SUM(p.amount) AS total_revenue
+FROM film f
+	JOIN film_category fc ON f.film_id = fc.film_id
+	JOIN category cat ON fc.category_id = cat.category_id
+	LEFT JOIN inventory i ON f.film_id = i.film_id
+	LEFT JOIN rental r ON i.inventory_id = r.inventory_id
+	LEFT JOIN payment p ON r.rental_id = p.rental_id
+GROUP BY
+	f.film_id,
+	f.title,
+	f.length,
+	f.rental_duration,
+	f.rating,
+	cat.name
+HAVING SUM(p.amount) IS NOT NULL
+ORDER BY total_revenue DESC;
