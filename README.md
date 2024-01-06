@@ -10,4 +10,4 @@ The DVD rental database represents the business processes of a DVD rental store.
 Here is the link to the [PostgreSQL DVD Rental sample database](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip).
 
 ## Tableau Storyboard Presentation
-Link to my [Tableau Storyboard Presentation](https://public.tableau.com/app/profile/ryan.lee1243/viz/CareerFoundryExercise3_10_16891997793630/RockbusterPresentation?publish=yes)
+Link to my [Tableau Storyboard Presentation](https://public.tableau.com/app/profile/ryan.lee1243/viz/DVDRentalAnalysisStoryboard/RockbusterPresentation)
