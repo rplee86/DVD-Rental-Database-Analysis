@@ -1,4 +1,4 @@
--- Customer count, total payment, and average payment received in each country  
+-- Customer count, total payment, and average amount paid in each country  
 SELECT
 	co.country,
 	COUNT(DISTINCT(cu.customer_id)) AS customer_count,
