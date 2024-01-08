@@ -1,4 +1,4 @@
--- List of all movies, including title, length, rental duration, genre, rental rate, rating, quantity on hand, and total revenue
+-- List of all movies, including title, length, rental duration, rental rate, rating, genre, quantity on hand, number of rentals, and total revenue
 SELECT
 	DISTINCT f.film_id,
 	f.title,
