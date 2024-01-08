@@ -1,4 +1,4 @@
--- What genres are rented by the top 10 customers?
+-- Genres rented by the top 10 customers
 SELECT
 	c.customer_id,
 	c.first_name||' '||c.last_name AS customer_name,
