@@ -1,4 +1,4 @@
--- Obtain the number of times a genre with a particular rating was rented and the total revenue it brought in each country
+-- Obtain the number of times a genre with a particular rating was rented and the total revenue it generated in each country
 SELECT
 	co.country,
 	cat.name AS genre,
