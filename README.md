@@ -18,11 +18,11 @@ This project aims to understand the potential of the customer base of the analyz
 
 ## Content
 **1 SQL Codes**
-1. [List of all movies, including title, length, rental duration, rental rate, rating, genre, quantity on hand, number of rentals, and total revenue](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Movie%20info%20with%20total%20revenue)
-2. [Customer count, total payment, and average amount paid in each country](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Customer%20count%20with%20payments)
-3. [Top 10 customers: name, location, number of rentals, total money spent, ranked by money spent](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Top%2010%20customers)
-4. [Genres rented by the top 10 customers](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Genres%20rented%20by%20top%20customers)
-5. [Total number of rentals and revenue of each genre with a particular MPAA rating by country](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Genre%20rentals%20with%20total%20revenue)
+- [List of all movies, including title, length, rental duration, rental rate, rating, genre, quantity on hand, number of rentals, and total revenue](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Movie%20info%20with%20total%20revenue)
+- [Customer count, total payment, and average amount paid in each country](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Customer%20count%20with%20payments)
+- [Top 10 customers: name, location, number of rentals, total money spent, ranked by money spent](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Top%2010%20customers)
+- [Genres rented by the top 10 customers](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Genres%20rented%20by%20top%20customers)
+- [Total number of rentals and revenue of each genre with a particular MPAA rating by country](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/SQL%20Code/Genre%20rentals%20with%20total%20revenue)
 
 **2 Entity Relationship Diagram**
 - [ERD](https://raw.githubusercontent.com/ryanpatricklee/Business-Strategy-Analysis/main/Rockbuster%20ERD.png) made with [DbVisualizer](https://www.dbvis.com/)
