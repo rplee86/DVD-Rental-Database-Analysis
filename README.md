@@ -32,3 +32,5 @@ This project aims to understand the potential of the customer base of the analyz
 
 ## Data
 [PostgreSQL DVD Rental sample database](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
+
+This project was created for an SQL training challenge.
