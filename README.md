@@ -3,7 +3,7 @@ Utilized SQL and Tableaufor in-depth analysis of a company's growth prospects an
 
 [Link to the Tableau Storyboard](https://public.tableau.com/app/profile/ryan.lee1243/viz/DVDRentalAnalysisStoryboard/RockbusterPresentation)
 
-## Project Objective
+## Objective
 This project aims to understand the potential of the customer base of the analyzed business. By analyzing the data, the project answers the main business questions outlined by the management, analyzes the tastes and preferences of the customers, and determines whether they can be satisfied by the existing inventory.
 
 ### Key Questions:
