@@ -31,4 +31,4 @@ This project aims to understand the potential of the customer base of the analyz
 - [Data Dictionary](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/Rockbuster%20Data%20Dictionary.pdf)
 
 ## Data
-[PostgreSQL DVD Rental sample database](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip).
+[PostgreSQL DVD Rental sample database](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
