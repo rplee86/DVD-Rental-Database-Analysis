@@ -29,11 +29,6 @@ This project aims to understand the potential of the customer base of the analyz
 
 **3 Data Dictionary**
 - [Data Dictionary](https://github.com/ryanpatricklee/Business-Strategy-Analysis/blob/main/Rockbuster%20Data%20Dictionary.pdf)
-In this data analytics project, I use PostgreSQL in conjunction with Tableau to answer business questions for a fictitious DVD rental company, Rockbuster Stealth, in service of applying my data analytics skills learned from [CareerFoundry](https://careerfoundry.com/). This repository contains the following:
-- Project brief, fabricated for the purpose of learning
-- Data dictionary
-- SQL queries to answer business questions
-- An entity relationship diagram (ERD) made with 
 
 ## Data
 [PostgreSQL DVD Rental sample database](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip).
