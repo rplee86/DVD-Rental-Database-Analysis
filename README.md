@@ -1,5 +1,5 @@
 # SQL: Business Strategy Analysis
-Utilized SQL and Tableau for in-depth analysis of a company's growth prospects and performance.
+Utilized SQL for in-depth analysis of a company's growth prospects and performance.
 
 [Link to the Tableau Storyboard](https://public.tableau.com/app/profile/ryan.lee1243/viz/DVDRentalAnalysisStoryboard/RockbusterPresentation)
 
